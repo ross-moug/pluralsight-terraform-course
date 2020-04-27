@@ -5,6 +5,9 @@ resource "aws_instance" "PluralsightExampleServer1" {
     Name = "PluralsightExampleServer1",
     Use = "Demo for Pluralsight"
   }
+  provisioner "local-exec" {
+    command = "echo  Server 1: ${aws_instance.PluralsightExampleServer1.private_ip} >> private_ips.txt"
+  }
 }
 
 resource "aws_instance" "PluralsightExampleServer2" {
@@ -13,5 +16,8 @@ resource "aws_instance" "PluralsightExampleServer2" {
   tags = {
     Name = "PluralsightExampleServer2",
     Use = "Demo for Pluralsight"
+  }
+  provisioner "local-exec" {
+    command = "echo  Server 2: ${aws_instance.PluralsightExampleServer2.private_ip} >> private_ips.txt"
   }
 }
