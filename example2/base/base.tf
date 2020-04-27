@@ -1,8 +1,8 @@
 // AWS provider configuration
 provider "aws" {
-  access_key = "" // Redacted
-  secret_key = "" // Redacted
-  region = "eu-west-1"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+  region = var.aws_region
 }
 
 resource "aws_instance" "PluralsightExampleServer1" {
