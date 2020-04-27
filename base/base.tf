@@ -8,6 +8,11 @@ resource "aws_instance" "PluralsightExampleServer1" {
   provisioner "local-exec" {
     command = "echo  Server 1: ${aws_instance.PluralsightExampleServer1.private_ip} >> private_ips.txt"
   }
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply"
+    ]
+  }
 }
 
 resource "aws_instance" "PluralsightExampleServer2" {
