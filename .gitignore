@@ -30,3 +30,4 @@ override.tf.json
 
 # Custom
 dev/private_ips.txt
+.idea
